@@ -5,18 +5,17 @@
 DECLARE_LOG_CATEGORY_EXTERN(TEMPLATE_TEST_LOG, All, All);
 DEFINE_LOG_CATEGORY(TEMPLATE_TEST_LOG);
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSourceTests, "SourceTests", EAutomationTestFlags::ATF_Editor)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FTEMPLATE_Tests, "TEMPLATE_Tests", EAutomationTestFlags::ATF_Game)
 
-bool FSourceTests::RunTest(const FString& Parameters)
+bool FTEMPLATE_Tests::RunTest(const FString& Parameters)
 {
   UE_LOG(TEMPLATE_TEST_LOG, Warning, TEXT("SourceTests: Ok"));
-  UE_LOG(TEMPLATE_TEST_LOG, Error, TEXT("SourceTests: Error 1"));
-  UE_LOG(TEMPLATE_TEST_LOG, Error, TEXT("SourceTests: Error 2"));
+  UE_LOG(TEMPLATE_TEST_LOG, Error, TEXT("SourceTests: Error message"));
 
   auto instance = new Source();
   delete instance;
 
-  TestTrue(TEXT("Some value"), false);
+  TestTrue(TEXT("Some message"), true);
 
   return true;
 }
