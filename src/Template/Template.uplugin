@@ -19,6 +19,11 @@
 			"Name": "Template",
 			"Type": "Runtime",
 			"LoadingPhase": "PreLoadingScreen"
+		},
+		{
+			"Name": "TemplateSamples",
+			"Type": "Editor",
+			"LoadingPhase": "PreLoadingScreen"
 		}
 	]
 }
