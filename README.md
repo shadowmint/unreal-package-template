@@ -1,5 +1,7 @@
 # TEMPLATE
 
+To get started you should probably edit and then run `node specify.js`.
+
 ...
 
 ## Usage
