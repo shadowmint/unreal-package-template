@@ -4,7 +4,7 @@ using UnrealBuildTool;
 
 public class TemplateSamples : ModuleRules
 {
-	public Template(ReadOnlyTargetRules Target) : base(Target)
+	public TemplateSamples(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
