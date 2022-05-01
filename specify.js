@@ -3,7 +3,7 @@ const path = require('path');
 
 const ignore = [/.*\.png/]
 const namespace = "Project";
-const apply = false;
+const apply = true;
 
 const mapping = {
     "files": {
@@ -61,9 +61,8 @@ for (var i = 0; i < files.length; i++) {
         for (let key of Object.keys(mapping['files'])) {
             filename = filename.replaceAll(key, mapping['files'][key]);
         }
-        if (filename !== ref.filename) {
+        if (filename !== ref.file) {
             const outputPath = path.join(path.dirname(ref.path), filename);
-            console.log(`: FILE: RENAME: ${ref.path} -> ${outputPath}`);
             if (apply) {
                 fs.renameSync(ref.path, outputPath);
             }
@@ -77,14 +76,15 @@ for (var i = 0; i < depthFirstFolders.length; i++) {
     const ref = depthFirstFolders[i];
     if (ref.type === "directory") {
         if (ignore.filter(i => i.test(ref.path.toString())).length) continue;
-        let fullpath = ref.path;
+        let filename = ref.file;
         for (let key of Object.keys(mapping['files'])) {
-            fullpath = fullpath.replaceAll(key, mapping['files'][key]);
+            filename = filename.replaceAll(key, mapping['files'][key]);
         }
-        if (fullpath !== ref.path) {
-            console.log(`: FOLDER: RENAME: ${ref.path} -> ${fullpath}`);
+        if (filename !== ref.file) {
+            const outputPath = path.join(path.dirname(ref.path), filename);
+            console.log(`: FOLDER: RENAME: ${ref.path} -> ${outputPath}`);
             if (apply) {
-                fs.renameSync(ref.path, fullpath);
+                fs.renameSync(ref.path, outputPath);
             }
         }
     }
