@@ -1,9 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const ignore = [/.*\.png/]
+// Rename this to match your plugin name, eg. MFoo
 const namespace = "Project";
-const apply = true;
+const ignore = [/.*\.png/]
+
+// Set this to true after reviewing to apply the changes.
+const apply = false;
 
 const mapping = {
     "files": {
